@@ -4,11 +4,12 @@
   "description": "`asda`",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
+    "dev": "rm -rf dist && webpack --mode development",
+    "build": "rm -rf dist && webpack --mode production",
     "watch": "npm run dev -- --watch",
     "start": "webpack serve --mode development",
-    "deploy": "npm run build && surge ./dist oioiree.surge.sh"
+    "deploy": "npm run build && surge ./dist oioiree.surge.sh",
+    "githubio": "npm run build && git clone https://github.com/Tristjan-Erich/Tristjan-Erich.github.io.git github && rm -rf github/*.html && rm -rf github/*.js && cp ./dist/* github && cd github && git add . && git commit -m 'update' && git push && cd .. && rm -rf github"
   },
   "repository": {
     "type": "git",
